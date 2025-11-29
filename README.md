@@ -46,3 +46,13 @@ cd laravel-crud-demo
 composer install
 cp .env.example .env
 php artisan key:generate
+## 📸 Screenshots
+
+### Home Page
+![Home](screenshots/home.png)
+
+### Product Listing Page
+![Products](screenshots/products.png)
+
+### Create Product Page
+![Create](screenshots/create.png)
