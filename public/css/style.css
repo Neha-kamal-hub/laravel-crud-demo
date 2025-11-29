@@ -1,0 +1,111 @@
+body {
+    background: #f4f6fb;
+}
+
+/* Navbar */
+.custom-navbar {
+    background: linear-gradient(135deg, #4f46e5, #06b6d4);
+}
+
+.logo-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #facc15;
+    margin-right: 6px;
+}
+
+/* Card container */
+.page-header {
+    margin-bottom: 1.5rem;
+}
+
+.page-header h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+.page-subtitle {
+    color: #6b7280;
+}
+
+/* Table */
+.table-card {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+    background: #ffffff;
+}
+
+.table thead {
+    background: #f3f4ff;
+}
+
+.table th {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #6b7280;
+}
+
+.table tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+/* Badges / stats */
+.stats-card {
+    border-radius: 16px;
+    background: linear-gradient(135deg, #eef2ff, #ecfeff);
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.stats-card h6 {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-bottom: 0.25rem;
+}
+
+.stats-card .number {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+/* Forms */
+.form-card {
+    border-radius: 16px;
+    background: #ffffff;
+    padding: 1.5rem 1.75rem;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+.btn-primary,
+.btn-success {
+    border-radius: 999px;
+    padding-inline: 1.5rem;
+}
+
+.btn-outline-secondary {
+    border-radius: 999px;
+}
+
+/* Validation */
+.alert-danger ul {
+    margin-bottom: 0;
+}
+
+/* Small screen tweaks */
+@media (max-width: 576px) {
+    .page-header h1 {
+        font-size: 1.4rem;
+    }
+
+    .table-responsive {
+        font-size: 0.9rem;
+    }
+}
