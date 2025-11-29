@@ -23,7 +23,7 @@ class ProductController extends Controller
     }
 
     // IMPORTANT: use paginate(), not get()
-    $products = $query->latest()->paginate(8)->withQueryString();
+    $products = $query->latest()->paginate(5)->withQueryString();
 
     return view('products.index', compact('products', 'search'));
 }

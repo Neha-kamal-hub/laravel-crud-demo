@@ -93,7 +93,7 @@
 
             <div class="p-3">
                 {{-- Pagination links (Bootstrap style if configured) --}}
-                {{ $products->links() }}
+                {{ $products->links('components.pagination') }}
             </div>
         @else
             <div class="p-4 text-center text-muted">

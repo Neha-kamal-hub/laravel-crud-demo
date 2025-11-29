@@ -40,19 +40,31 @@
                 <input type="number" step="0.01" name="price" class="form-control"
                        value="{{ old('price', $product->price) }}" required>
             </div>
-
             <div class="col-md-6">
                 <label class="form-label">Image</label>
-                <input type="file" name="image" class="form-control">
+                <input type="file" name="image" class="form-control" id="imageInputEdit" accept="image/*">
+
+                {{-- New image (just selected) --}}
+                <small id="newImageName" class="text-muted d-block mt-1"></small>
+                <div class="mt-2">
+                    <img id="newImagePreview"
+                        src="#"
+                        alt="New image preview"
+                        style="display:none;width:70px;height:70px;object-fit:cover;border-radius:10px;">
+                </div>
+
+                {{-- Current image coming from database --}}
                 @if($product->image)
-                    <div class="mt-2">
+                    <div class="mt-3">
                         <small class="text-muted d-block">Current image:</small>
+                        <span class="small d-block mb-1">{{ basename($product->image) }}</span>
                         <img src="{{ asset('storage/'.$product->image) }}"
-                             alt="Image"
-                             style="width: 70px; height: 70px; object-fit: cover; border-radius: 10px;">
+                            alt="Current image"
+                            style="width:70px;height:70px;object-fit:cover;border-radius:10px;">
                     </div>
                 @endif
             </div>
+
 
             <div class="col-12">
                 <label class="form-label">Description</label>
@@ -69,4 +81,30 @@
             </div>
         </form>
     </div>
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const input   = document.getElementById('imageInputEdit');
+            const preview = document.getElementById('newImagePreview');
+            const nameEl  = document.getElementById('newImageName');
+
+            if (!input) return;
+
+            input.addEventListener('change', function (e) {
+                const file = e.target.files[0];
+
+                if (!file) {
+                    preview.style.display = 'none';
+                    preview.src = '#';
+                    nameEl.textContent = '';
+                    return;
+                }
+
+                nameEl.textContent = file.name;
+
+                const url = URL.createObjectURL(file);
+                preview.src = url;
+                preview.style.display = 'block';
+            });
+        });
+    </script>
 @endsection

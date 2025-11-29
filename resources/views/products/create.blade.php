@@ -39,8 +39,18 @@
 
             <div class="col-md-6">
                 <label class="form-label">Image</label>
-                <input type="file" name="image" class="form-control">
+                <input type="file" name="image" class="form-control" id="imageInputCreate" accept="image/*">
+
+                <small id="imageNameCreate" class="text-muted d-block mt-1"></small>
+
+                <div class="mt-2">
+                    <img id="imagePreviewCreate"
+                        src="#"
+                        alt="Selected image preview"
+                        style="display:none;width:90px;height:90px;object-fit:cover;border-radius:10px;">
+                </div>
             </div>
+
 
             <div class="col-12">
                 <label class="form-label">Description</label>
@@ -57,4 +67,30 @@
             </div>
         </form>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const input   = document.getElementById('imageInputCreate');
+            const preview = document.getElementById('imagePreviewCreate');
+            const nameEl  = document.getElementById('imageNameCreate');
+
+            if (!input) return;
+
+            input.addEventListener('change', function (e) {
+                const file = e.target.files[0];
+
+                if (!file) {
+                    preview.style.display = 'none';
+                    preview.src = '#';
+                    nameEl.textContent = '';
+                    return;
+                }
+
+                nameEl.textContent = file.name;
+
+                const url = URL.createObjectURL(file);
+                preview.src = url;
+                preview.style.display = 'block';
+            });
+        });
+    </script>
 @endsection
